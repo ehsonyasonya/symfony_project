@@ -31,20 +31,6 @@ services:
       - target: 443
         published: ${HTTP3_PORT:-443}
         protocol: udp
-
-  db:
-    image: postgres
-    restart: always
-    # set shared memory limit when using docker-compose
-    shm_size: 128mb
-    # or set shared memory limit when deploy via swarm stack
-    #volumes:
-    #  - type: tmpfs
-    #    target: /dev/shm
-    #    tmpfs:
-    #      size: 134217728 # 128*2^20 bytes = 128Mb
-    environment:
-        POSTGRES_PASSWORD: example
     
   adminer:
     image: adminer
@@ -69,6 +55,8 @@ services:
       timeout: 5s
       retries: 5
       start_period: 60s
+    ports:
+      - "5432:5432"
     volumes:
       - database_data:/var/lib/postgresql/data:rw
       # You may use a bind-mounted host directory instead, so that it is harder to accidentally remove the volume and lose all your data!
@@ -78,7 +66,6 @@ services:
 volumes:
   caddy_data:
   caddy_config:
-  postgres_data:
 ###> symfony/mercure-bundle ###
 ###< symfony/mercure-bundle ###
 
