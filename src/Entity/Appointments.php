@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\AppointmentsRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 /**
  * @ORM\Entity(repositoryClass=AppointmentRepository::class)
  * @ORM\Table(
@@ -20,29 +21,36 @@ class Appointments
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['appointment:read'])] 
     private ?int $id = null;
 
     #[ORM\OneToOne(targetEntity: Users::class)]
     #[ORM\JoinColumn(name: "client_id", referencedColumnName: "id")]
+    #[Groups(['appointment:read'])] 
     private ?Users $client_id = null;
 
     #[ORM\OneToOne(targetEntity: Employees::class)]
     #[ORM\JoinColumn(name: "employee_id", referencedColumnName: "id")]
+    #[Groups(['appointment:read'])] 
     private ?Employees $employee_id = null;
 
     #[ORM\OneToOne(targetEntity: Services::class)]
     #[ORM\JoinColumn(name: "service_id", referencedColumnName: "id")]
+    #[Groups(['appointment:read'])] 
     private ?Services $service_id = null;
 
 
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
+    #[Groups(['appointment:read'])] 
     private ?\DateTimeInterface $appointment_date = null;
 
     #[ORM\Column(type: Types::TIME_MUTABLE)]
+    #[Groups(['appointment:read'])] 
     private ?\DateTimeInterface $appointment_time = null;
 
     #[ORM\Column(length: 20)]
+    #[Groups(['appointment:read'])] 
     private ?string $status = null;
 
     public function getId(): ?int

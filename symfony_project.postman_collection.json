@@ -1,0 +1,427 @@
+{
+	"info": {
+		"_postman_id": "e451fd2f-834a-486c-81c8-37d9156de1e2",
+		"name": "symfony_project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41797936"
+	},
+	"item": [
+		{
+			"name": "get_users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost/users/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_user",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost/user/51",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"user",
+						"51"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{   \r\n    \"firstName\": \"Worker5\",\r\n    \"lastName\": \"User\",\r\n    \"email\": \"worker5@email.com\",\r\n    \"role\": \"ROLE_WORKER\",\r\n    \"password\": \"password789\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost/user/create",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"user",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update_user",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstName\": \"Sofiya\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost/user/61/update",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"user",
+						"61",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete_user",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost/user/59/delete",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"user",
+						"59",
+						"delete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_services",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost/services",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"services"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_service",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost/service/23",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"service",
+						"23"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_service",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"service3\",\r\n    \"duration_minutes\": 45,\r\n    \"description\": \"description\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost/service/create",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"service",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_employees",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost/employees",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"employees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_employee",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost/employee/18",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"employee",
+						"18"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_employee",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user_id\": 71,\r\n  \"bio\": \"A new worker\",\r\n  \"rating\": 4.0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost/employee/create",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"employee",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_schedules",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost/schedules",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"schedules"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_schedule",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost/schedule/18",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"schedule",
+						"18"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_appointments",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost/appointments",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"appointments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_appointment",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost/appointment/13",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"appointment",
+						"13"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_appointment",
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": [
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "algorithm",
+							"value": "HS256",
+							"type": "string"
+						},
+						{
+							"key": "isSecretBase64Encoded",
+							"value": false,
+							"type": "boolean"
+						},
+						{
+							"key": "payload",
+							"value": "{}",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer",
+							"type": "string"
+						},
+						{
+							"key": "queryParamKey",
+							"value": "token",
+							"type": "string"
+						},
+						{
+							"key": "header",
+							"value": "{}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3Mzg4NjcxMjYsImV4cCI6MTczODg3MDcyNiwicm9sZXMiOlsiUk9MRV9BRE1JTiJdLCJ1c2VybmFtZSI6ImFkbWluQGV4YW1wbGUuY29tIn0.L3NieN_Vz0MNMsM6TZBVgx5i-stpmpOUCeDaXJ9FxS-dw66lGfp4zMdtgyk-aU1wq8nxiOeA23kEeCLyBUKRB1ICPb0pTxwlzQRh3ZBbBXakdKRdGmm6HMMFJokAKq54juxC6ByZbxdIXPGBVp7NNrGdkl7kCW-yaZtuAl0jFjuI1RD8faTTj-0abTDB2qjjy1siRLFbewReORT5WOF8PEPyFw9dhqvgdrEpqAgaVCbcdlwyI2Obwee1pTM0TjRUmLEwJC2N6Kx_dzSRWNRQRyO9D138bM7677tXcBw6JxfS0zf9psLdXMojrwph7nygDCULkrTG5qBDiaWKMBgR_w",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"client_id\": 70,\r\n  \"employee_id\": 22,\r\n  \"service_id\": 26,\r\n  \"appointment_date\": \"2025-02-06\",\r\n  \"appointment_time\": \"15:00\",\r\n  \"status\": \"pending\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost/api/appointment/create",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"appointment",
+						"create"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

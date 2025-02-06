@@ -24,36 +24,36 @@ class AppFixtures extends Fixture
         // $product = new Product();
         // $manager->persist($product);
 
-        $user1 = new Users();
-        $user1->setFirstName("first_name")
-            ->setLastName("last_name")
-            ->setEmail("user@email.com")
-            ->setRole(["user"]);
-        $hashedPassword = $this->passwordHasher ->hashPassword($user1,"user_password");
-        $user1->setPassword($hashedPassword);
-        $manager->persist($user1);
+        $client = new Users();
+        $client->setFirstName("John")
+            ->setLastName("Doe")
+            ->setEmail("client@email.com")
+            ->setRole(["role_client"]);
+        $hashedPassword = $this->passwordHasher ->hashPassword($client,"client_password");
+        $client->setPassword($hashedPassword);
+        $manager->persist($client);
 
-        $user2 = new Users();
-        $user2->setFirstName("first_name")
-            ->setLastName("last_name")
-            ->setEmail("user@email.com")
-            ->setRole(["user"]);
-        $hashedPassword = $this->passwordHasher ->hashPassword($user2,"user_password");
-        $user2->setPassword($hashedPassword);
-        $manager->persist($user2);
+        $worker = new Users();
+        $worker->setFirstName("Alice")
+            ->setLastName("Smith")
+            ->setEmail("worker@email.com")
+            ->setRole(["role_worker"]);
+        $hashedPassword = $this->passwordHasher ->hashPassword($worker,"worker_password");
+        $worker->setPassword($hashedPassword);
+        $manager->persist($worker);
 
         $service = new Services();
         $service->setName("consultation")
-            ->setDescription("test")
+            ->setDescription("genral consultation service")
             ->setDurationMinutes("45");
         $manager->persist($service);
 
         $manager->flush();
 
         $employee = new Employees();
-        $employee->setBio("test")
+        $employee->setBio("experienced consultant with 2 years in the industry")
             ->setRating("4.5")
-            ->setUserId($user1);
+            ->setUserId($worker);
         $manager->persist($employee);
 
         $manager->flush();
@@ -71,7 +71,7 @@ class AppFixtures extends Fixture
         $appointment->setAppointmentDate(new \DateTime("2025-01-29"))
             ->setAppointmentTime(new \DateTime("9:00"))
             ->setStatus("completed")
-            ->setClientId($user2)
+            ->setClientId($client)
             ->setEmployeeId($employee)
             ->setServiceId($service);
         $manager->persist($appointment);

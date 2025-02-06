@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\EmployeesRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: EmployeesRepository::class)]
 class Employees
@@ -12,16 +13,20 @@ class Employees
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['employee:read','schedule:read', 'appointment:read'])] 
     private ?int $id = null;
 
     #[ORM\OneToOne(targetEntity: Users::class)]
     #[ORM\JoinColumn(name: "user_id", referencedColumnName: "id")]
+    #[Groups(['user:read','employee:read','schedule:read', 'appointment:read'])] 
     private ?Users $user_id = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['employee:read','schedule:read', 'appointment:read'])] 
     private ?string $bio = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 3, scale: 2)]
+    #[Groups(['employee:read','schedule:read', 'appointment:read'])] 
     private ?string $rating = null;
 
     public function getId(): ?int

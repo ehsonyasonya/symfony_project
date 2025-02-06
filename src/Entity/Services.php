@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\ServicesRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: ServicesRepository::class)]
 class Services
@@ -11,15 +12,19 @@ class Services
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['appointment:read'])] 
     private ?int $id = null;
 
     #[ORM\Column(length: 100)]
+    #[Groups(['appointment:read'])] 
     private ?string $name = null;
 
     #[ORM\Column(length: 200, nullable: true)]
+    #[Groups(['appointment:read'])] 
     private ?string $description = null;
 
     #[ORM\Column]
+    #[Groups(['appointment:read'])] 
     private ?int $duration_minutes = null;
 
     public function getId(): ?int

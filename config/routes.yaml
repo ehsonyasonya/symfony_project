@@ -4,6 +4,3 @@ controllers:
         namespace: App\Controller
     type: attribute
 
-lucky :
-    path: /lucky/number
-    controller: App\Controller\LuckyController::number

@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\ScheduleRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: ScheduleRepository::class)]
 class Schedule
@@ -12,19 +13,24 @@ class Schedule
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['schedule:read'])] 
     private ?int $id = null;
 
     #[ORM\OneToOne(targetEntity: Employees::class)]
     #[ORM\JoinColumn(name: "employee_id", referencedColumnName: "id")]
+    #[Groups(['employee:read','schedule:read'])] 
     private ?Employees $employee_id = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
+    #[Groups(['schedule:read'])] 
     private ?\DateTimeInterface $date = null;
 
     #[ORM\Column(type: Types::TIME_MUTABLE)]
+    #[Groups(['schedule:read'])] 
     private ?\DateTimeInterface $start_time = null;
 
     #[ORM\Column(type: Types::TIME_MUTABLE)]
+    #[Groups(['schedule:read'])] 
     private ?\DateTimeInterface $end_time = null;
 
     public function getId(): ?int
